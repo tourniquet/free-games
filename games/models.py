@@ -8,7 +8,7 @@ class Genre(models.Model):
     verbose_name_plural = 'genres'
 
   def __str__(self):
-    return self.name
+    return self.title
 
 
 class Game(models.Model):
@@ -23,4 +23,4 @@ class Game(models.Model):
     verbose_name_plural = 'games'
 
   def __str__(self):
-    return self.name
+    return self.title
