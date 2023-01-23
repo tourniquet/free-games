@@ -1,0 +1,17 @@
+{% extends "games/base.html" %}
+
+{% block content %}
+  {% for game in games %}
+    <div class="list-item">
+      <img src="" alt="" class="thumbnail">
+      
+      <div class="item-body">
+        <p class="item-title">{{game}}</p>
+        <p class="item-platform">W</p>
+        {% for genre in game.genres.all %}
+          <p class="item-genres">{{genre.title}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}

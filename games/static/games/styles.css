@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, helvetica, sans-serif;
+  margin: 0 auto;
+  width: 800px;
+}
+
+.list-item {
+  background: #192635;
+  display: flex;
+  height: 69px;
+  width: 100%;
+}
+
+.thumbnail {
+  background: green;
+  float: left;
+  width: 100px;
+}
+
+.item-body, .item-title, .item-genres {
+  line-height: 5px;
+}
+
+.item-body {
+  padding-left: 15px;
+}
+
+.item-title {
+  color: #c7d5e0;
+  font-size: 15px;
+}
+
+.item-genres {
+  color: #384959;
+  font-size: 12px;
+}
