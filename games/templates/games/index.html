@@ -1,17 +1,43 @@
 {% extends "games/base.html" %}
 
 {% block content %}
-  {% for game in games %}
-    <div class="list-item">
-      <img src="" alt="" class="thumbnail">
-      
-      <div class="item-body">
-        <p class="item-title">{{game}}</p>
-        <p class="item-platform">W</p>
-        {% for genre in game.genres.all %}
-          <p class="item-genres">{{genre.title}}</p>
-        {% endfor %}
-      </div>
+  <div class="sidebar">
+    <div class="platforms">
+      <span class="block-platform">Platforms:</span>
+
+      {% for platform in platforms %}
+        <a class="platform-title" href="platform/{{platform.title}}">{{platform}}</a>
+      {% endfor %}
     </div>
-  {% endfor %}
+
+    <div class="genres">
+      <span class="block-genre">Genres:</span>
+
+      {% for genre in genres %}
+        <a class="genre-title" href="genre/{{genre.title}}">{{genre}}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="items-list">
+    {% for game in games %}
+      <div class="list-item">
+        {% if game.image %}
+          <img src="{{game.image.url}}" alt="" class="thumbnail">
+        {% endif %}
+        
+        <div class="item-body">
+          <a class="item-title" href="{{game.urls}}" target="_blank">{{game}}</a>
+  
+          {% for platform in game.platform.all %}
+            <a class="item-platform" href="platform/{{platform.title}}">{{platform.title}}</a>
+          {% endfor %}
+  
+          {% for genre in game.genres.all %}
+            <a class="item-genres" href="genre/{{genre.title}}">{{genre.title}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
